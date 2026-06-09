@@ -70,7 +70,7 @@ class RagasRunner(BaseEvaluator):
             model=self._model_name,
             base_url="http://localhost:11434",
             temperature=0.0,
-            format="json",
+            # format="json",
         )
         self.wrapper_llm = LangchainLLMWrapper(self.native_ollama)
 
@@ -107,7 +107,8 @@ class RagasRunner(BaseEvaluator):
                 llm=self.wrapper_llm,
                 embeddings=self.wrapper_embeddings,
                 run_config=local_throttle_config,
-                raise_exceptions=True,
+                # raise_exceptions=True,
+                raise_exceptions=False
             )
 
             scores_df = results.to_pandas()
@@ -156,6 +157,5 @@ class RagasRunner(BaseEvaluator):
                 "faithfulness": 0.0,
                 "answer_relevance": 0.0,
                 "context_recall": 0.0,
-                "context_precision": 0.0,
                 "answer_correctness": 0.0,
             }

@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Dict, Any
 
+
 class BaseEvaluator(ABC):
     @property
     @abstractmethod
@@ -12,7 +13,7 @@ class BaseEvaluator(ABC):
         """
         Takes a sample dictionary containing:
         user_input, retrieved_contexts, response, reference
-        
+
         Returns a standardized dictionary of metrics between 0.0 and 1.0:
         {
             "faithfulness": float,

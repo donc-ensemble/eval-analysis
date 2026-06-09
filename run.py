@@ -1,8 +1,10 @@
 import sys
 import types
+import argparse
+import os
+from datetime import datetime
 
 # --- 🩹 CORE RAGAS STARTUP MONKEY-PATCH ---
-# Intercept Python module instantiation parameters to override internal vendor bugs
 try:
     from langchain_community.chat_models.vertexai import ChatVertexAI
 except ModuleNotFoundError:
@@ -22,48 +24,58 @@ from src.orchestrator import EvaluationOrchestrator
 
 
 async def main():
-    # 1. Gather our 25 pre-fabricated evaluation criteria scenarios
-    dataset = load_evaluation_dataset("data/dataset.json")
-    print(f"📦 Successfully parsed {len(dataset)} matrix scenarios from local paths.")
+    parser = argparse.ArgumentParser(
+        description="Local multi-framework RAG evaluation dashboard pipeline."
+    )
+    parser.add_argument(
+        "--framework",
+        type=str,
+        default="all",
+        choices=["all", "ragas", "promptfoo"],
+        help="Which framework(s) to run.",
+    )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default="mistral",
+        help="Local Ollama model name.",
+    )
+    args = parser.parse_args()
 
-    # 2. Initialize our central execution brain
-    orchestrator = EvaluationOrchestrator(model_name="mistral")
+    run_ragas = args.framework in ["all", "ragas"]
+    run_pfoo = args.framework in ["all", "promptfoo"]
 
-    print("\n🏁 Starting cross-framework evaluation run...")
-    evaluation_matrix = []
+    # 1. Create a single timestamped directory for this entire run
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_dir = os.path.join("data/output", ts)
+    os.makedirs(output_dir, exist_ok=True)
 
-    # 3. Stream through data points one by one for live visibility
-    for sample in dataset:
-        case_id = sample.get("id", "unknown")
-        single_row_batch = [sample]
-        processed_batch = await orchestrator.run_full_suite(single_row_batch)
+    dataset = load_evaluation_dataset()
+    total = len(dataset)
 
-        collated_row = processed_batch[0]
-        evaluation_matrix.append(collated_row)
-        
-        ragas_scores = collated_row["frameworks"].get("ragas", {})
-        
-        print(f"   📊 Live Scores [{case_id}] \n"
-            f"     🔹 Faithfulness: {ragas_scores.get('faithfulness', 0.0):.2f}\n"
-            f"     🔹 Relevance: {ragas_scores.get('answer_relevance', 0.0):.2f}\n"
-            f"     🔹 Context Recall: {ragas_scores.get('context_recall', 0.0):.2f}\n"
-            f"     🔹 Answer Correctness: {ragas_scores.get('answer_correctness', 0.0):.2f}\n")
-        
-    # --- 💾 NEW COMPONENT: PERSIST DATA TO DISK ---
-    output_file = "data/evaluation_results.json"
-    with open(output_file, "w", encoding="utf-8") as f:
+    print(f"📦 Loaded {total} sample(s) from dataset.")
+    print(f"🎯 Framework target: [{args.framework.upper()}]")
+    print(f"🤖 Model: {args.model}")
+    print(f"📁 Output directory: [{output_dir}/]")
+    print()
+
+    # 2. Pass the timestamped directory to the orchestrator
+    orchestrator = EvaluationOrchestrator(model_name=args.model, output_dir=output_dir)
+
+    evaluation_matrix = await orchestrator.run_full_suite(
+        dataset=dataset,
+        run_ragas=run_ragas,
+        run_pfoo=run_pfoo,
+    )
+
+    # 3. Overwrite the final target file to ensure perfectly valid JSON structure at the end
+    final_file_name = f"{args.framework}.json"
+    combined_path = os.path.join(output_dir, final_file_name)
+    with open(combined_path, "w", encoding="utf-8") as f:
         json.dump(evaluation_matrix, f, indent=2)
-    # ----------------------------------------------
-    # 4. Save the compiled results matrix permanently to disk
-    output_file = "data/evaluation_results.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(evaluation_matrix, f, indent=2)
 
-    print("---")
-    print("✨ Comprehensive evaluation loop concluded successfully.")
-    print(f"💾 Full cross-framework matrix saved to: [{output_file}]")
-    print("📊 Verification Checkpoint Matrix Output Sample (Row 1 Summary):")
-    print(json.dumps(evaluation_matrix[0]["frameworks"]["ragas"], indent=2))
+    print("💾 Run successfully completed!")
+    print(f"📁 Target output saved to: [{combined_path}]")
 
 
 if __name__ == "__main__":

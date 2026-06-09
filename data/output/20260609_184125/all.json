@@ -15,9 +15,10 @@
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.9300123249502287,
+        "context_recall": 1.0
       }
     }
   },
@@ -34,12 +35,13 @@
         "answer_correctness": 0.9478797197232276,
         "faithfulness": 1.0,
         "answer_relevance": 0.9105412335031305,
-        "context_recall": 0.5
+        "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.8387708013740437,
+        "context_recall": 1.0
       }
     }
   },
@@ -55,13 +57,14 @@
       "ragas": {
         "answer_correctness": 0.9342608323301252,
         "faithfulness": 1.0,
-        "answer_relevance": 0.90476244782349,
+        "answer_relevance": 0.907306779275289,
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.9088686435727859,
+        "context_recall": 1.0
       }
     }
   },
@@ -77,13 +80,14 @@
       "ragas": {
         "answer_correctness": 0.9306517298230035,
         "faithfulness": 1.0,
-        "answer_relevance": 0.857800189197271,
+        "answer_relevance": 0.8589733688645306,
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.9267962082863389,
+        "context_recall": 1.0
       }
     }
   },
@@ -99,13 +103,14 @@
       "ragas": {
         "answer_correctness": 0.6293975994054839,
         "faithfulness": 0.75,
-        "answer_relevance": 0.8099868823632163,
+        "answer_relevance": 0.8250056865553347,
         "context_recall": 0.5
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.8039541681052439,
+        "context_recall": 1.0
       }
     }
   },
@@ -121,13 +126,14 @@
       "ragas": {
         "answer_correctness": 0.9277857843499918,
         "faithfulness": 1.0,
-        "answer_relevance": 0.6841585818837416,
+        "answer_relevance": 0.7532068143487528,
         "context_recall": 0.5
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.7629596527969659,
+        "context_recall": 1.0
       }
     }
   },
@@ -141,15 +147,16 @@
     "reference": "Events are diverted to a dead-letter queue and an on-call alert is triggered.",
     "frameworks": {
       "ragas": {
-        "answer_correctness": 0.4312352095152486,
+        "answer_correctness": 0.0,
         "faithfulness": 1.0,
         "answer_relevance": 0.8946145390267919,
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.8296533742307801,
+        "context_recall": 1.0
       }
     }
   },
@@ -165,13 +172,14 @@
       "ragas": {
         "answer_correctness": 0.9546270860028373,
         "faithfulness": 1.0,
-        "answer_relevance": 0.7579070890973695,
+        "answer_relevance": 0.7563746864960598,
         "context_recall": 0.5
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.8087571714191865,
+        "context_recall": 1.0
       }
     }
   },
@@ -191,9 +199,10 @@
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.8321888040823325,
+        "context_recall": 1.0
       }
     }
   },
@@ -209,13 +218,14 @@
       "ragas": {
         "answer_correctness": 0.9477806500627701,
         "faithfulness": 1.0,
-        "answer_relevance": 0.7966964816381744,
+        "answer_relevance": 0.8020660660059837,
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.8211103769334306,
+        "context_recall": 1.0
       }
     }
   },
@@ -235,9 +245,10 @@
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.7313120016691558,
+        "context_recall": 1.0
       }
     }
   },
@@ -253,13 +264,14 @@
       "ragas": {
         "answer_correctness": 0.9525596970029657,
         "faithfulness": 1.0,
-        "answer_relevance": 0.7862849533798192,
+        "answer_relevance": 0.7986656167146747,
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.711080943636321,
+        "context_recall": 1.0
       }
     }
   },
@@ -273,15 +285,16 @@
     "reference": "By running `./bin/registry-flush.sh --force` using administrative system context permissions.",
     "frameworks": {
       "ragas": {
-        "answer_correctness": 0.6988313522384273,
+        "answer_correctness": 0.7988313522384274,
         "faithfulness": 1.0,
         "answer_relevance": 0.6766115771606579,
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.6639668699373791,
+        "context_recall": 1.0
       }
     }
   },
@@ -301,9 +314,10 @@
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.4775397895702443,
+        "context_recall": 1.0
       }
     }
   },
@@ -317,15 +331,16 @@
     "reference": "The Least Connections load-balancing allocation strategy.",
     "frameworks": {
       "ragas": {
-        "answer_correctness": 0.5964617097989637,
+        "answer_correctness": 0.41789028122753513,
         "faithfulness": 0.75,
-        "answer_relevance": 0.5639920082544946,
-        "context_recall": 1.0
+        "answer_relevance": 0.6456758216131745,
+        "context_recall": 0.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.6348888376574682,
+        "context_recall": 1.0
       }
     }
   },
@@ -340,14 +355,15 @@
     "frameworks": {
       "ragas": {
         "answer_correctness": 0.15201601629129408,
-        "faithfulness": 0.5,
-        "answer_relevance": 0.7087781765089014,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.7101519223115176,
         "context_recall": 1.0
       },
       "promptfoo": {
+        "answer_correctness": 0.0,
         "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_relevance": 0.7963425080099652,
+        "context_recall": 1.0
       }
     }
   },
@@ -363,13 +379,14 @@
       "ragas": {
         "answer_correctness": 0.18589235048260966,
         "faithfulness": 0.0,
-        "answer_relevance": 0.7622033508001934,
+        "answer_relevance": 0.773223038115819,
         "context_recall": 0.0
       },
       "promptfoo": {
+        "answer_correctness": 0.0,
         "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_relevance": 0.7050440256003586,
+        "context_recall": 1.0
       }
     }
   },
@@ -385,13 +402,14 @@
       "ragas": {
         "answer_correctness": 0.16891152339395293,
         "faithfulness": 0.5,
-        "answer_relevance": 0.6999556757866272,
+        "answer_relevance": 0.6568190286165174,
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 0.75,
+        "answer_relevance": 0.6166648909636797,
+        "context_recall": 1.0
       }
     }
   },
@@ -407,13 +425,14 @@
       "ragas": {
         "answer_correctness": 0.1615959216980531,
         "faithfulness": 0.0,
-        "answer_relevance": 0.7421011744700853,
+        "answer_relevance": 0.7507808281390748,
         "context_recall": 1.0
       },
       "promptfoo": {
+        "answer_correctness": 0.0,
         "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_relevance": 0.6682586275286888,
+        "context_recall": 1.0
       }
     }
   },
@@ -429,13 +448,14 @@
       "ragas": {
         "answer_correctness": 0.13368777526491238,
         "faithfulness": 0.0,
-        "answer_relevance": 0.6004964239409382,
-        "context_recall": 0.625
+        "answer_relevance": 0.6339850141073365,
+        "context_recall": 0.2222222222222222
       },
       "promptfoo": {
+        "answer_correctness": 1.0,
         "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_relevance": 0.5995459456803731,
+        "context_recall": 0.6666666666666666
       }
     }
   },
@@ -450,14 +470,15 @@
     "frameworks": {
       "ragas": {
         "answer_correctness": 0.16312585755109474,
-        "faithfulness": 0.25,
-        "answer_relevance": 0.8579509785428195,
+        "faithfulness": 0.5,
+        "answer_relevance": 0.8596418639673736,
         "context_recall": 1.0
       },
       "promptfoo": {
+        "answer_correctness": 1.0,
         "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_relevance": 0.8235806958304587,
+        "context_recall": 1.0
       }
     }
   },
@@ -471,15 +492,16 @@
     "reference": "All configuration parameters must use snake_case formatting structures exclusively.",
     "frameworks": {
       "ragas": {
-        "answer_correctness": 0.16457204724202779,
+        "answer_correctness": 0.0,
         "faithfulness": 0.5,
-        "answer_relevance": 0.6176510503009749,
-        "context_recall": 1.0
+        "answer_relevance": 0.6545882783491489,
+        "context_recall": 0.3333333333333333
       },
       "promptfoo": {
+        "answer_correctness": 1.0,
         "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_relevance": 0.6724751375245349,
+        "context_recall": 1.0
       }
     }
   },
@@ -495,13 +517,14 @@
       "ragas": {
         "answer_correctness": 0.14089658284568127,
         "faithfulness": 0.0,
-        "answer_relevance": 0.6834304367847414,
+        "answer_relevance": 0.715142565501222,
         "context_recall": 1.0
       },
       "promptfoo": {
+        "answer_correctness": 0.0,
         "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_relevance": 0.662470953126565,
+        "context_recall": 1.0
       }
     }
   },
@@ -517,13 +540,14 @@
       "ragas": {
         "answer_correctness": 0.13185258973780878,
         "faithfulness": 0.5,
-        "answer_relevance": 0.6404865409898739,
+        "answer_relevance": 0.6364660302327123,
         "context_recall": 1.0
       },
       "promptfoo": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_correctness": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 0.6837067398262301,
+        "context_recall": 1.0
       }
     }
   },
@@ -539,13 +563,14 @@
       "ragas": {
         "answer_correctness": 0.1611516917513412,
         "faithfulness": 0.0,
-        "answer_relevance": 0.7646386585486686,
+        "answer_relevance": 0.7566910614480372,
         "context_recall": 1.0
       },
       "promptfoo": {
+        "answer_correctness": 1.0,
         "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "answer_correctness": 0.0
+        "answer_relevance": 0.7421953764176791,
+        "context_recall": 1.0
       }
     }
   }
