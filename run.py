@@ -40,14 +40,15 @@ async def main():
 
         collated_row = processed_batch[0]
         evaluation_matrix.append(collated_row)
-
-        ragas_scores = collated_row["frameworks"]["ragas"]
-        print(
-            f"   📊 Live Scores [{case_id}] -> Faithfulness: {ragas_scores['faithfulness']:.2f} | "
-            f"Relevance: {ragas_scores['answer_relevance']:.2f} | "
-            f"Recall: {ragas_scores['context_recall']:.2f}\n"
-        )
-
+        
+        ragas_scores = collated_row["frameworks"].get("ragas", {})
+        
+        print(f"   📊 Live Scores [{case_id}] \n"
+            f"     🔹 Faithfulness: {ragas_scores.get('faithfulness', 0.0):.2f}\n"
+            f"     🔹 Relevance: {ragas_scores.get('answer_relevance', 0.0):.2f}\n"
+            f"     🔹 Context Recall: {ragas_scores.get('context_recall', 0.0):.2f}\n"
+            f"     🔹 Answer Correctness: {ragas_scores.get('answer_correctness', 0.0):.2f}\n")
+        
     # --- 💾 NEW COMPONENT: PERSIST DATA TO DISK ---
     output_file = "data/evaluation_results.json"
     with open(output_file, "w", encoding="utf-8") as f:

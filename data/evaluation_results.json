@@ -9,6 +9,7 @@
     "reference": "36 months starting from activation.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.917733296780915,
         "faithfulness": 1.0,
         "answer_relevance": 0.9438903010937864,
         "context_recall": 1.0
@@ -16,12 +17,7 @@
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -35,6 +31,7 @@
     "reference": "No, table sharing is completely restricted; use Kafka for shared states.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9478797197232276,
         "faithfulness": 1.0,
         "answer_relevance": 0.9105412335031305,
         "context_recall": 0.5
@@ -42,12 +39,7 @@
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -61,19 +53,15 @@
     "reference": "16GB maximum allocation limit before OOM termination.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9342608323301252,
         "faithfulness": 1.0,
-        "answer_relevance": 0.9042645718014756,
+        "answer_relevance": 0.90476244782349,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -87,6 +75,7 @@
     "reference": "7 days retention period in hot storage.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9306517298230035,
         "faithfulness": 1.0,
         "answer_relevance": 0.857800189197271,
         "context_recall": 1.0
@@ -94,12 +83,7 @@
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -113,19 +97,15 @@
     "reference": "gRPC over internal private networks.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.6293975994054839,
         "faithfulness": 0.75,
-        "answer_relevance": 0.828036940623554,
+        "answer_relevance": 0.8099868823632163,
         "context_recall": 0.5
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -139,19 +119,15 @@
     "reference": "To continuously align active runtime configurations with the intended system state manifests.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9277857843499918,
         "faithfulness": 1.0,
-        "answer_relevance": 0.6469974803490787,
+        "answer_relevance": 0.6841585818837416,
         "context_recall": 0.5
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -165,6 +141,7 @@
     "reference": "Events are diverted to a dead-letter queue and an on-call alert is triggered.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.4312352095152486,
         "faithfulness": 1.0,
         "answer_relevance": 0.8946145390267919,
         "context_recall": 1.0
@@ -172,12 +149,7 @@
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -191,19 +163,15 @@
     "reference": "An R-Tree index layout over spatial key coordinates.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9546270860028373,
         "faithfulness": 1.0,
-        "answer_relevance": 0.7563746864960598,
+        "answer_relevance": 0.7579070890973695,
         "context_recall": 0.5
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -217,6 +185,7 @@
     "reference": "Every 6 hours.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9109705783680945,
         "faithfulness": 1.0,
         "answer_relevance": 0.7452477109759211,
         "context_recall": 1.0
@@ -224,12 +193,7 @@
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -243,19 +207,15 @@
     "reference": "Mutual TLS validation utilizing authorized root certificates.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9477806500627701,
         "faithfulness": 1.0,
-        "answer_relevance": 0.8313478880020528,
+        "answer_relevance": 0.7966964816381744,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -269,6 +229,7 @@
     "reference": "Direct pass-through read traffic execution against the relational database layer.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.6532023774771489,
         "faithfulness": 1.0,
         "answer_relevance": 0.7830996932605764,
         "context_recall": 1.0
@@ -276,12 +237,7 @@
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -295,19 +251,15 @@
     "reference": "AES-256 block-cipher encryption.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9525596970029657,
         "faithfulness": 1.0,
-        "answer_relevance": 0.8010009397488699,
+        "answer_relevance": 0.7862849533798192,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -321,6 +273,7 @@
     "reference": "By running `./bin/registry-flush.sh --force` using administrative system context permissions.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.6988313522384273,
         "faithfulness": 1.0,
         "answer_relevance": 0.6766115771606579,
         "context_recall": 1.0
@@ -328,12 +281,7 @@
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -347,6 +295,7 @@
     "reference": "5MB maximum file size limit.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.9157103265525073,
         "faithfulness": 1.0,
         "answer_relevance": 0.879231929476424,
         "context_recall": 1.0
@@ -354,12 +303,7 @@
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -373,19 +317,15 @@
     "reference": "The Least Connections load-balancing allocation strategy.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.5964617097989637,
         "faithfulness": 0.75,
-        "answer_relevance": 0.646816513795432,
+        "answer_relevance": 0.5639920082544946,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -399,19 +339,15 @@
     "reference": "15 minutes validation lifespan expiration.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.15201601629129408,
         "faithfulness": 0.5,
-        "answer_relevance": 0.7101519223115176,
+        "answer_relevance": 0.7087781765089014,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -425,19 +361,15 @@
     "reference": "No, legacy HTTP/1.1 connections are blocked; HTTP/2 or HTTP/3 is strictly mandated.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.18589235048260966,
         "faithfulness": 0.0,
-        "answer_relevance": 0.7531734462675356,
+        "answer_relevance": 0.7622033508001934,
         "context_recall": 0.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -451,19 +383,15 @@
     "reference": "Logs are automatically zipped and packed into compressed archive files.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.16891152339395293,
         "faithfulness": 0.5,
-        "answer_relevance": 0.6823665965133601,
+        "answer_relevance": 0.6999556757866272,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -477,19 +405,15 @@
     "reference": "No, deep recursive nesting is blocked to avoid server thread lock crashes.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.1615959216980531,
         "faithfulness": 0.0,
-        "answer_relevance": 0.7745661614776619,
+        "answer_relevance": 0.7421011744700853,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -503,19 +427,15 @@
     "reference": "Argon2id hashing calculation coupled with customized unique salts.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.13368777526491238,
         "faithfulness": 0.0,
-        "answer_relevance": 0.5927765694729993,
+        "answer_relevance": 0.6004964239409382,
         "context_recall": 0.625
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -529,19 +449,15 @@
     "reference": "Gracefully flip the config schema runtime properties to deactivate synchronization flags for clean exit handling.",
     "frameworks": {
       "ragas": {
-        "faithfulness": 0.5,
-        "answer_relevance": 0.8596418639673736,
+        "answer_correctness": 0.16312585755109474,
+        "faithfulness": 0.25,
+        "answer_relevance": 0.8579509785428195,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -555,19 +471,15 @@
     "reference": "All configuration parameters must use snake_case formatting structures exclusively.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.16457204724202779,
         "faithfulness": 0.5,
-        "answer_relevance": 0.6006270160336628,
+        "answer_relevance": 0.6176510503009749,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -581,19 +493,15 @@
     "reference": "Asset conversion processing runs externally on isolated cloud edge micro-workers.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.14089658284568127,
         "faithfulness": 0.0,
-        "answer_relevance": 0.7079301947640914,
+        "answer_relevance": 0.6834304367847414,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -607,19 +515,15 @@
     "reference": "Execute an immediate automatic roll-back routine back to the previous stable release iteration tag.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.13185258973780878,
         "faithfulness": 0.5,
-        "answer_relevance": 0.6375251729808787,
+        "answer_relevance": 0.6404865409898739,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   },
@@ -633,19 +537,15 @@
     "reference": "Pools must stay locked under their rigid size constraint limits to protect underlying database instances.",
     "frameworks": {
       "ragas": {
+        "answer_correctness": 0.1611516917513412,
         "faithfulness": 0.0,
-        "answer_relevance": 0.7685041361952991,
+        "answer_relevance": 0.7646386585486686,
         "context_recall": 1.0
       },
       "promptfoo": {
         "faithfulness": 0.0,
         "answer_relevance": 0.0,
-        "context_recall": 0.0
-      },
-      "langsmith": {
-        "faithfulness": 0.0,
-        "answer_relevance": 0.0,
-        "context_recall": 0.0
+        "answer_correctness": 0.0
       }
     }
   }

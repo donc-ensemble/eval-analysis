@@ -16,7 +16,6 @@ class EvaluationOrchestrator:
             # Run Ragas execution pass
             ragas_scores = await self.ragas_runner.evaluate_sample(sample)
             
-            # Correlate tracking properties into a unified row payload
             collated_row = {
                 "id": case_id,
                 "user_input": sample["user_input"],
@@ -25,17 +24,18 @@ class EvaluationOrchestrator:
                 "reference": sample["reference"],
                 "frameworks": {
                     "ragas": {
-                        "faithfulness": ragas_scores["faithfulness"],
-                        "answer_relevance": ragas_scores["answer_relevance"],
-                        "context_recall": ragas_scores["context_recall"]
+                        "answer_correctness": ragas_scores.get("answer_correctness", 0.0),
+                        "faithfulness": ragas_scores.get("faithfulness", 0.0),
+                        "answer_relevance": ragas_scores.get("answer_relevance", 0.0),
+                        "context_recall": ragas_scores.get("context_recall", 0.0)
                     },
                     "promptfoo": {
-                        "faithfulness": 0.0,  # Placeholder for Step 2
+                        "faithfulness": 0.0,
                         "answer_relevance": 0.0,
                         "context_recall": 0.0
                     },
                     "langsmith": {
-                        "faithfulness": 0.0,  # Placeholder for Step 3
+                        "faithfulness": 0.0,
                         "answer_relevance": 0.0,
                         "context_recall": 0.0
                     }
