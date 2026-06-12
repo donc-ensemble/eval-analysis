@@ -1,0 +1,727 @@
+[
+  {
+    "id": "base_01",
+    "user_input": "What is the premium coverage period for the CyberShield 300 series?",
+    "retrieved_contexts": [
+      "The CyberShield 300 series enterprise agreement features a default 36-month premium hardware coverage lifecycle starting from the date of central system activation."
+    ],
+    "response": "The premium hardware coverage period for the CyberShield 300 series lasts for 36 months following your system activation date.",
+    "reference": "36 months starting from activation.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_02",
+    "user_input": "Can internal database tables be shared across tenants in the core multi-tenant mesh?",
+    "retrieved_contexts": [
+      "To prevent data isolation leakage, the multi-tenant mesh completely restricts the sharing of raw database tables across separate logical tenants. Shared states must utilize the transactional Kafka layer instead."
+    ],
+    "response": "No, raw database tables cannot be shared directly across tenants in the multi-tenant mesh. You must utilize the transactional Kafka layer for any shared states.",
+    "reference": "No, table sharing is completely restricted; use Kafka for shared states.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_03",
+    "user_input": "What is the exact memory limitation of a standard worker node container?",
+    "retrieved_contexts": [
+      "Standard worker node containers are hard-throttled at a strict memory threshold allocation limit of 16GB. Exceeding this triggers an instant kernel OOM-killer sequence."
+    ],
+    "response": "A standard worker node container has a maximum hard memory limit of 16GB. Going over this allocation will trigger an immediate kernel OOM-killer crash sequence.",
+    "reference": "16GB maximum allocation limit before OOM termination.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_04",
+    "user_input": "How long are trace logs kept in the high-performance hot storage tiers?",
+    "retrieved_contexts": [
+      "To manage infrastructural data volumes, system trace logs are automatically truncated and purged from the high-performance hot storage tiers exactly 7 days after collection."
+    ],
+    "response": "Trace logs are maintained in the high-performance hot storage layer for 7 days before being automatically cleaned up.",
+    "reference": "7 days retention period in hot storage.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_05",
+    "user_input": "What protocol is enforced for cluster internal synchronization?",
+    "retrieved_contexts": [
+      "Node cluster internal status synchronization is strictly managed using a highly responsive gRPC protocol wrapper executing on layer 4 transport over dedicated internal VLAN subnets."
+    ],
+    "response": "The system mandates the use of gRPC for all internal node cluster synchronization tasks over dedicated private subnets.",
+    "reference": "gRPC over internal private networks.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_06",
+    "user_input": "What is the purpose of the primary reconciliation loop inside the state engine?",
+    "retrieved_contexts": [
+      "The internal state engine deploys a persistent background reconciliation loop tasked with scanning target runtime deployments and matching them explicitly against desired infrastructure manifests."
+    ],
+    "response": "The main reconciliation loop continuously checks active runtime deployments to ensure they match your intended structural infrastructure manifests.",
+    "reference": "To continuously align active runtime configurations with the intended system state manifests.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_07",
+    "user_input": "What happens if a webhook endpoint times out repeatedly during event dispatching?",
+    "retrieved_contexts": [
+      "If a target webhook endpoint exhibits concurrent timeout faults during event delivery, the system pauses delivery, routes the events to an isolated dead-letter queue, and triggers an on-call PagerDuty alert."
+    ],
+    "response": "Repeated timeout failures during webhook dispatches cause the application to freeze delivery, forward the events to a dead-letter queue, and fire off an incident response alert via PagerDuty.",
+    "reference": "Events are diverted to a dead-letter queue and an on-call alert is triggered.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_08",
+    "user_input": "What database indexing structure is utilized for geolocation tracking queries?",
+    "retrieved_contexts": [
+      "High-velocity spatial tracking elements use a localized R-Tree index topology structure over spatial geometric keys to handle near-instantaneous query operations."
+    ],
+    "response": "The geo-tracking framework implements an R-Tree index setup over spatial keys to maintain performance for incoming location queries.",
+    "reference": "An R-Tree index layout over spatial key coordinates.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_09",
+    "user_input": "How frequently are production master snapshots generated?",
+    "retrieved_contexts": [
+      "The database automated backup engine handles a permanent task routine that executes full production master data snapshots every 6 hours onto cold cloud object storage arrays."
+    ],
+    "response": "Production master storage snapshots are processed automatically on a regular schedule every 6 hours.",
+    "reference": "Every 6 hours.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_10",
+    "user_input": "What authentication mechanism is required for external B2B partner system integrations?",
+    "retrieved_contexts": [
+      "All inbound traffic originating from external corporate partner systems must validate access by exchanging a signed mTLS certificate verified against our central enterprise root authority certificates."
+    ],
+    "response": "External partner system connections are required to authenticate using mutual TLS (mTLS) backed by our root authority keys.",
+    "reference": "Mutual TLS validation utilizing authorized root certificates.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_11",
+    "user_input": "What fallback strategy is used when the primary redis cache layer is completely unreachable?",
+    "retrieved_contexts": [
+      "If the master redis container cluster faces a complete systemic infrastructure blackout, the gateway routing proxy bypasses caching entirely and safely handles read actions straight against the transactional database clusters."
+    ],
+    "response": "When the Redis cache layer goes completely down, the application shifts traffic to read operations executed directly against the main transactional database instances.",
+    "reference": "Direct pass-through read traffic execution against the relational database layer.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_12",
+    "user_input": "What encryption standard is applied to static config files at rest?",
+    "retrieved_contexts": [
+      "All application layer configurations and state properties at rest are strictly protected under an AES-256 block-cipher encryption standard with keys managed by the envelope KMS architecture."
+    ],
+    "response": "The system utilizes AES-256 block-cipher configurations to safely encrypt your setting files when stored at rest.",
+    "reference": "AES-256 block-cipher encryption.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_13",
+    "user_input": "How can an engineer force a manual clear of the internal session registries?",
+    "retrieved_contexts": [
+      "Engineers can manually purge active cache session clusters by executing the operational bash utility script `./bin/registry-flush.sh --force` with administrator system clear clearance credentials."
+    ],
+    "response": "You can force execute a session wipe by logging into the admin console and running the `./bin/registry-flush.sh --force` management command.",
+    "reference": "By running `./bin/registry-flush.sh --force` using administrative system context permissions.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_14",
+    "user_input": "What is the maximum allowed file payload upload limit for user avatars?",
+    "retrieved_contexts": [
+      "To preserve bucket storage performance constraints, user profile avatar uploads are verified at the gateway and hard-blocked if the asset payload length exceeds 5MB."
+    ],
+    "response": "User avatar media uploads are checked at the edge proxy and restricted to a maximum size threshold of 5MB.",
+    "reference": "5MB maximum file size limit.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "base_15",
+    "user_input": "Which balancing algorithm is standard across the ingress application route controllers?",
+    "retrieved_contexts": [
+      "Traffic routing allocations across the primary ingress ingress load balancers default to a stateful Least Connections algorithm strategy to optimize internal server task assignments."
+    ],
+    "response": "The system maps incoming web requests using a stateful Least Connections structural balancing setup across backend nodes.",
+    "reference": "The Least Connections load-balancing allocation strategy.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_hallucination_16",
+    "user_input": "What is the token expiration window for user authentication links?",
+    "retrieved_contexts": [
+      "Magic auth tokens dispatched to user email addresses are programmed to expire exactly 15 minutes after issuance to prevent credential misuse."
+    ],
+    "response": "Your email authentication links stay fully active for 24 hours and include a bonus secondary backup extension window of 60 minutes if requested.",
+    "reference": "15 minutes validation lifespan expiration.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_hallucination_17",
+    "user_input": "Does the system allow automated fallback down to HTTP/1.1 for edge endpoints?",
+    "retrieved_contexts": [
+      "To enforce modern transport security policies, our external application reverse proxies explicitly mandate HTTP/2 or HTTP/3 and drop any incoming raw HTTP/1.1 handshakes automatically."
+    ],
+    "response": "Yes, our multi-tier routing architecture safely permits automatic fallback down to legacy HTTP/1.1 connections across all major edge routing points to retain old browser compatibility.",
+    "reference": "No, legacy HTTP/1.1 connections are blocked; HTTP/2 or HTTP/3 is strictly mandated.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_hallucination_18",
+    "user_input": "What happens to old log file groups when localized storage utilization reaches 90%?",
+    "retrieved_contexts": [
+      "When the host node storage utilization partition triggers an alert at 90%, the file utility system steps down older logs, compressing files into archived `.tar.gz` segments onto mount paths."
+    ],
+    "response": "Upon reaching 90% space capacity, the daemon securely wipes out every single uncompressed system historical log asset instantly to clear up space.",
+    "reference": "Logs are automatically zipped and packed into compressed archive files.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_hallucination_19",
+    "user_input": "Is nested recursive querying permitted inside the custom graph database engine?",
+    "retrieved_contexts": [
+      "Graph query parameters are constrained by design to linear graph traversals; deep multi-level nested recursive queries are hard-blocked to avoid computational thread lock conditions."
+    ],
+    "response": "The graph engine has native support for deeply nested recursive operations running up to an infinite structural path length depth parallel matrix layer.",
+    "reference": "No, deep recursive nesting is blocked to avoid server thread lock crashes.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_hallucination_20",
+    "user_input": "What mechanism safeguards password values before storage commits?",
+    "retrieved_contexts": [
+      "User passwords are treated with a specialized salt configuration value and compiled via unique cryptographic loops using a slow Argon2id hashing hashing function configuration before write operations."
+    ],
+    "response": "Passwords are transformed into MD5 hashing structures and ran through a super fast basic single-iteration pass loop layout string directly into cleartext pools.",
+    "reference": "Argon2id hashing calculation coupled with customized unique salts.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_context_21",
+    "user_input": "How can an operator immediately stop a runaway data synchronization workflow task?",
+    "retrieved_contexts": [
+      "Operators must never invoke system level kill signals on active data sync loops, as this corrupts database files. Instead, change the configuration file flag to `sync_enabled: false` and allow a clean engine checkpoint shutdown loop."
+    ],
+    "response": "To completely halt a running data synchronization pipeline workflow instantly, you should pass a terminal force flag command `kill -9` to completely drop the running process thread tracking tree.",
+    "reference": "Gracefully flip the config schema runtime properties to deactivate synchronization flags for clean exit handling.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_context_22",
+    "user_input": "What style format should be utilized when writing custom system configuration keys?",
+    "retrieved_contexts": [
+      "Our configuration processing engine leverages a strict parser that reads setting assignments exclusively formatted via snake_case characters. CamelCase layout configurations cause configuration crash bugs at runtime."
+    ],
+    "response": "When configuring custom application system property attributes, you are required to define all map variable settings using standard CamelCase string names.",
+    "reference": "All configuration parameters must use snake_case formatting structures exclusively.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_context_23",
+    "user_input": "Where are user profile media uploads processed?",
+    "retrieved_contexts": [
+      "User avatar pictures are routed directly away from primary computation stacks and pushed out to external edge cloud worker micro-runtimes to process filtering scales safely away from core servers."
+    ],
+    "response": "All incoming user media structures are ingested and scaled directly inside our central primary app monolithic compute database node instances.",
+    "reference": "Asset conversion processing runs externally on isolated cloud edge micro-workers.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_context_24",
+    "user_input": "What is our deployment pipeline strategy when a canary deployment health check fails?",
+    "retrieved_contexts": [
+      "When canary testing health flags signal errors during zero-downtime rolls, the platform proxy triggers an instantaneous automatic rollback back to the previously stable active container images safely."
+    ],
+    "response": "If your canary container versions trigger an active tracking error alert, the orchestrator overrides the warning and pushes the code straight into full production server sets to speed up hotfixing metrics.",
+    "reference": "Execute an immediate automatic roll-back routine back to the previous stable release iteration tag.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  },
+  {
+    "id": "trap_context_25",
+    "user_input": "How should database connection string pools behave during high-intensity spike events?",
+    "retrieved_contexts": [
+      "Under intense concurrent request processing periods, connection pools must never grow past explicit allocation constraints. Doing so starves our cluster node instances of connection limits."
+    ],
+    "response": "During high concurrent web request traffic waves, database pooling configurations are dynamically configured to spin open unlimited connection strings to meet throughput demand.",
+    "reference": "Pools must stay locked under their rigid size constraint limits to protect underlying database instances.",
+    "frameworks": {
+      "ragas": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "promptfoo": {
+        "answer_correctness": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "context_recall": 0.0
+      },
+      "langsmith": {
+        "answer_correctness": 0.8,
+        "faithfulness": 0.85,
+        "answer_relevance": 0.88,
+        "context_recall": 0.82
+      }
+    }
+  }
+]
