@@ -98,6 +98,12 @@ def _print_rolling_summary(
     print("-" * 52 + "\n", flush=True)
 
 
+def _fw_row(collated_row: Dict[str, Any], metrics: Dict[str, float]) -> Dict[str, Any]:
+    row = {k: v for k, v in collated_row.items() if k != "frameworks"}
+    row["metrics"] = metrics
+    return row
+
+
 def _append_result_to_file(result: Dict[str, Any], path: str) -> None:
     """Load existing list (or start fresh), append, write back."""
     existing: List[Dict[str, Any]] = []
@@ -250,17 +256,12 @@ class EvaluationOrchestrator:
             _print_rolling_summary(compiled_results, run_ragas, run_pfoo, run_langsmith)
 
             # --- Append to per-framework files immediately (crash-safe) ---
-            def _fw_row(metrics: Dict[str, float]) -> Dict[str, Any]:
-                row = {k: v for k, v in collated_row.items() if k != "frameworks"}
-                row["metrics"] = metrics
-                return row
-
             if run_ragas:
-                _append_result_to_file(_fw_row(ragas_metrics), ragas_path)
+                _append_result_to_file(_fw_row(collated_row, ragas_metrics), ragas_path)
             if run_pfoo:
-                _append_result_to_file(_fw_row(pfoo_metrics), pfoo_path)
+                _append_result_to_file(_fw_row(collated_row, pfoo_metrics), pfoo_path)
             if run_langsmith:
-                _append_result_to_file(_fw_row(langsmith_metrics), langsmith_path)
+                _append_result_to_file(_fw_row(collated_row, langsmith_metrics), langsmith_path)
 
             # all.json only written when more than one framework ran
             active_count = sum([run_ragas, run_pfoo, run_langsmith])

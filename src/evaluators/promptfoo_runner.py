@@ -8,11 +8,20 @@ import yaml
 
 from src.evaluators.base import BaseEvaluator
 
+OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+
 ASSERTION_TO_METRIC = {
     "context-faithfulness": "faithfulness",
     "context-recall": "context_recall",
     "answer-relevance": "answer_relevance",
     "factuality": "answer_correctness",
+}
+
+ZERO_SCORES: Dict[str, float] = {
+    "faithfulness": 0.0,
+    "answer_relevance": 0.0,
+    "context_recall": 0.0,
+    "answer_correctness": 0.0,
 }
 
 
@@ -26,7 +35,6 @@ class PromptfooRunner(BaseEvaluator):
         return self._name
 
     def _build_config(self, sample: Dict[str, Any]) -> Dict[str, Any]:
-        """Builds the true Promptfoo YAML configuration structure."""
         return {
             "description": f"RAG eval — {sample.get('id', 'unknown')}",
             "prompts": ["{{response}}"],
@@ -37,13 +45,13 @@ class PromptfooRunner(BaseEvaluator):
                         "text": {
                             "id": f"ollama:chat:{self._model_name}",
                             "config": {
-                                "baseUrl": "http://localhost:11434",
+                                "baseUrl": OLLAMA_HOST,
                                 "temperature": 0.0,
                             },
                         },
                         "embedding": {
                             "id": "ollama:embeddings:nomic-embed-text",
-                            "config": {"baseUrl": "http://localhost:11434"},
+                            "config": {"baseUrl": OLLAMA_HOST},
                         },
                     }
                 }
@@ -58,31 +66,15 @@ class PromptfooRunner(BaseEvaluator):
                     },
                     "assert": [
                         {"type": "context-faithfulness", "threshold": 0},
-                        {
-                            "type": "context-recall",
-                            "value": "{{reference}}",
-                            "threshold": 0,
-                        },
+                        {"type": "context-recall", "value": "{{reference}}", "threshold": 0},
                         {"type": "answer-relevance", "threshold": 0},
-                        {
-                            "type": "factuality",
-                            "value": "{{reference}}",
-                            "threshold": 0,
-                        },
+                        {"type": "factuality", "value": "{{reference}}", "threshold": 0},
                     ],
                 }
             ],
         }
 
     def _run_eval(self, config: Dict[str, Any], case_id: str) -> Dict[str, float]:
-        """Executes the actual Promptfoo CLI safely."""
-        defaults: Dict[str, float] = {
-            "faithfulness": 0.0,
-            "answer_relevance": 0.0,
-            "context_recall": 0.0,
-            "answer_correctness": 0.0,
-        }
-
         with tempfile.TemporaryDirectory() as tmpdir:
             config_path = os.path.join(tmpdir, "promptfooconfig.yaml")
             output_path = os.path.join(tmpdir, "results.json")
@@ -91,55 +83,42 @@ class PromptfooRunner(BaseEvaluator):
                 yaml.dump(config, f, allow_unicode=True, default_flow_style=False)
 
             cmd = [
-                "npx",
-                "promptfoo",
-                "eval",
-                "--config",
-                config_path,
-                "--output",
-                output_path,
+                "npx", "promptfoo", "eval",
+                "--config", config_path,
+                "--output", output_path,
                 "--no-cache",
                 "--no-write",
-                "--max-concurrency",
-                "1",
+                "--max-concurrency", "1",
             ]
 
             try:
-                proc = subprocess.run(
-                    cmd,
-                    capture_output=True,
-                    text=True,
-                    timeout=360,
-                )
+                proc = subprocess.run(cmd, capture_output=True, text=True, timeout=360)
 
-                # FIX: Exit code 100 means Promptfoo successfully ran but an assertion failed.
-                # We only want to abort if it's a completely different crash code.
+                # Exit code 100 means assertion failed (not a crash)
                 if proc.returncode not in [0, 100]:
-                    print(
-                        f"⚠️  [Promptfoo] CLI crashed with code {proc.returncode} on [{case_id}]"
-                    )
-                    return defaults
+                    print(f"⚠️  [Promptfoo] CLI exited {proc.returncode} on [{case_id}]")
+                    if proc.stderr:
+                        print(f"    stderr: {proc.stderr[:500]}")
+                    return dict(ZERO_SCORES)
 
             except subprocess.TimeoutExpired:
                 print(f"⚠️  [Promptfoo] Timeout on [{case_id}]")
-                return defaults
+                return dict(ZERO_SCORES)
             except Exception as e:
                 print(f"⚠️  [Promptfoo] Subprocess error on [{case_id}]: {e}")
-                return defaults
+                return dict(ZERO_SCORES)
 
-            # Parse results JSON safely
             try:
                 with open(output_path) as f:
                     data = json.load(f)
             except Exception:
-                return defaults
+                return dict(ZERO_SCORES)
 
-        # Extract actual Promptfoo scores
-        scores = dict(defaults)
+        scores = dict(ZERO_SCORES)
         try:
             results_list = data.get("results", {}).get("results", [])
             if not results_list:
-                return defaults
+                return scores
 
             component_results = (
                 results_list[0].get("gradingResult", {}).get("componentResults", [])
@@ -164,12 +143,4 @@ class PromptfooRunner(BaseEvaluator):
     async def evaluate_sample(self, sample: Dict[str, Any]) -> Dict[str, Any]:
         case_id = sample.get("id", "unknown")
         config = self._build_config(sample)
-
-        scores = await asyncio.to_thread(self._run_eval, config, case_id)
-
-        return {
-            "faithfulness": scores["faithfulness"],
-            "answer_relevance": scores["answer_relevance"],
-            "context_recall": scores["context_recall"],
-            "answer_correctness": scores["answer_correctness"],
-        }
+        return await asyncio.to_thread(self._run_eval, config, case_id)

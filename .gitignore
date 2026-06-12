@@ -50,6 +50,7 @@ htmlcov/
 # Generated reports/results
 reports/
 data/results/
+data/outputs/
 
 # Optional: keep dataset but ignore generated evaluations
 data/promptfoo/

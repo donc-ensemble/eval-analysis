@@ -23,7 +23,7 @@ except ModuleNotFoundError:
 import asyncio
 from datetime import datetime
 from src.dataset_loader import load_evaluation_dataset
-from src.orchestrator import EvaluationOrchestrator
+from src.orchestrator import EvaluationOrchestrator, METRICS
 
 
 async def main():
@@ -53,7 +53,7 @@ async def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     # All output goes to data/outputs/<timestamp>/
-    out_root = os.path.join("data", "output_average", ts)
+    out_root = os.path.join("data", "outputs", ts)
     os.makedirs(out_root, exist_ok=True)
 
     dataset = load_evaluation_dataset("data/dataset.json")
@@ -88,12 +88,7 @@ async def main():
         if run_langsmith:
             frameworks_to_check.append("langsmith")
 
-        metrics = [
-            "faithfulness",
-            "answer_relevance",
-            "context_recall",
-            "answer_correctness",
-        ]
+        metrics = METRICS
 
         # Build aggregation dictionary
         summary_stats = {fw: {m: [] for m in metrics} for fw in frameworks_to_check}

@@ -1,7 +1,8 @@
+import math
 import os
 import requests
 import asyncio
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from src.evaluators.base import BaseEvaluator
 
 os.environ["OPENAI_API_KEY"] = "ollama"
@@ -11,18 +12,26 @@ from langchain_ollama import ChatOllama
 from ragas import evaluate, EvaluationDataset, SingleTurnSample
 from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
-
-from ragas.metrics import (
-    Faithfulness,
-    AnswerRelevancy,
-    LLMContextRecall,
-    ContextPrecision,
-    AnswerCorrectness,
-)
+from ragas.metrics import Faithfulness, AnswerRelevancy, LLMContextRecall, AnswerCorrectness
 from ragas.run_config import RunConfig
 
 
-# --- 🛠️ ASYNC-COMPLIANT LOCAL EMBEDDING ROUTER ---
+def _safe_float(val: Any) -> float:
+    try:
+        f = float(val)
+        return 0.0 if math.isnan(f) else f
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _resolve_col(df, *candidates: str) -> Optional[str]:
+    for name in candidates:
+        if name in df.columns:
+            return name
+    print(f"⚠️ [RAGAS] None of {candidates} found in columns: {list(df.columns)}")
+    return None
+
+
 class DirectOllamaEmbeddings:
     def __init__(
         self,
@@ -44,7 +53,7 @@ class DirectOllamaEmbeddings:
                 response.raise_for_status()
                 embeddings.append(response.json()["embedding"])
             except Exception as e:
-                print(f"⚠️ [Embedding Error] Failed vector generation: {str(e)}")
+                print(f"⚠️ [Embedding Error] Failed vector generation: {e}")
                 embeddings.append([0.0] * 768)
         return embeddings
 
@@ -58,22 +67,16 @@ class DirectOllamaEmbeddings:
         return await asyncio.to_thread(self.embed_query, text)
 
 
-# -----------------------------------------------------------------
-
-
 class RagasRunner(BaseEvaluator):
     def __init__(self, model_name: str = "mistral"):
         self._model_name = model_name
 
-        # Initialize the clean base ChatOllama model with JSON format enforcement
         self.native_ollama = ChatOllama(
             model=self._model_name,
             base_url="http://localhost:11434",
             temperature=0.0,
-            # format="json",
         )
         self.wrapper_llm = LangchainLLMWrapper(self.native_ollama)
-
         self.local_embeddings = DirectOllamaEmbeddings(model_name="nomic-embed-text")
         self.wrapper_embeddings = LangchainEmbeddingsWrapper(self.local_embeddings)
 
@@ -82,6 +85,12 @@ class RagasRunner(BaseEvaluator):
         return "ragas"
 
     async def evaluate_sample(self, sample: Dict[str, Any]) -> Dict[str, Any]:
+        zero = {
+            "faithfulness": 0.0,
+            "answer_relevance": 0.0,
+            "context_recall": 0.0,
+            "answer_correctness": 0.0,
+        }
         try:
             ragas_sample = SingleTurnSample(
                 user_input=sample["user_input"],
@@ -91,71 +100,28 @@ class RagasRunner(BaseEvaluator):
             )
             eval_dataset = EvaluationDataset(samples=[ragas_sample])
 
-            # Instantiate metrics cleanly
-            faith = Faithfulness()
-            relevance = AnswerRelevancy()
-            recall = LLMContextRecall()
-            precision = ContextPrecision()
-            correctness = AnswerCorrectness()
-
-            local_throttle_config = RunConfig(max_workers=1, max_retries=1, max_wait=5)
-
-            # Pass llm and embeddings globally inside evaluate() to prevent OpenAI context leakage
             results = evaluate(
                 dataset=eval_dataset,
-                metrics=[faith, relevance, recall, precision, correctness],
+                metrics=[Faithfulness(), AnswerRelevancy(), LLMContextRecall(), AnswerCorrectness()],
                 llm=self.wrapper_llm,
                 embeddings=self.wrapper_embeddings,
-                run_config=local_throttle_config,
-                # raise_exceptions=True,
-                raise_exceptions=False
+                run_config=RunConfig(max_workers=1, max_retries=1, max_wait=5),
+                raise_exceptions=False,
             )
 
-            scores_df = results.to_pandas()
+            df = results.to_pandas()
 
-            def safe_float(val):
-                import math
+            faith_col = _resolve_col(df, "faithfulness")
+            relev_col = _resolve_col(df, "answer_relevancy", "answer_relevance")
+            recall_col = _resolve_col(df, "context_recall", "llm_context_recall")
+            correct_col = _resolve_col(df, "answer_correctness", "answer_similarity")
 
-                try:
-                    float_val = float(val)
-                    return 0.0 if math.isnan(float_val) else float_val
-                except:  # noqa: E722
-                    return 0.0
-
-            faith_col = (
-                "faithfulness"
-                if "faithfulness" in scores_df.columns
-                else scores_df.columns[0]
-            )
-            relev_col = (
-                "answer_relevancy"
-                if "answer_relevancy" in scores_df.columns
-                else "answer_relevance"
-            )
-            recall_col = (
-                "context_recall"
-                if "context_recall" in scores_df.columns
-                else "llm_context_recall"
-            )
-            correctness_col = (
-                "answer_correctness"
-                if "answer_correctness" in scores_df.columns
-                else "answer_similarity"
-            )
-
-            return { 
-                "faithfulness": safe_float(scores_df[faith_col].iloc[0]),
-                "answer_relevance": safe_float(scores_df[relev_col].iloc[0]),
-                "context_recall": safe_float(scores_df[recall_col].iloc[0]),
-                "answer_correctness": safe_float(scores_df[correctness_col].iloc[0]),
+            return {
+                "faithfulness": _safe_float(df[faith_col].iloc[0]) if faith_col else 0.0,
+                "answer_relevance": _safe_float(df[relev_col].iloc[0]) if relev_col else 0.0,
+                "context_recall": _safe_float(df[recall_col].iloc[0]) if recall_col else 0.0,
+                "answer_correctness": _safe_float(df[correct_col].iloc[0]) if correct_col else 0.0,
             }
         except Exception as e:
-            print(
-                f"❌ [RAGAS RUNTIME EXCEPTION] Row evaluation broken on ID {sample.get('id')}: {str(e)}"
-            )
-            return {
-                "faithfulness": 0.0,
-                "answer_relevance": 0.0,
-                "context_recall": 0.0,
-                "answer_correctness": 0.0,
-            }
+            print(f"❌ [RAGAS] Exception on {sample.get('id')}: {e}", flush=True)
+            return zero
